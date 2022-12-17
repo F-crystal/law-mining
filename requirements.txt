@@ -12,5 +12,6 @@ tensorboardX
 yacs
 pycorrector
 flask
+lxml
 synonyms
 jionlp
