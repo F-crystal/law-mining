@@ -22,7 +22,7 @@ pip install -r requirements.txt
 | **`中文纠错比赛数据汇总`** | Chinese Text Correction（CTC） | [中文纠错汇总数据集（天池）](https://tianchi.aliyun.com/dataset/138195) | - | - |
 
 ### 数据增强
-使用了[jionlp](https://github.com/dongrixinyu/JioNLP)和[eda](https://github.com/zhanlaoban/EDA_NLP_for_Chinese)两种方式
+使用了[jionlp](https://github.com/dongrixinyu/JioNLP)中同音词替换和语序置换两种方式
 
 ## 参考
 > Xu, M. Pycorrector: Text error correction tool (Version 0.4.2) [Computer software]. https://github.com/shibing624/pycorrector
