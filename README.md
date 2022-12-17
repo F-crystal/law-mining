@@ -2,7 +2,7 @@
 
 小组作业，基于现有模型开发的法律文书辅助系统，包括文本纠错、相似案例判别 <br>
 语言环境：python3<br>
-使用的库：罗列在[requirements.txt](https://github.com/F-crystal/law-mining/blob/7237902458d335e5e0fa2f9a9f00b41ace8cf856/requirements.txt)中，需要可以自行下载
+使用的库：罗列在[requirements.txt](https://github.com/F-crystal/law-mining/blob/7237902458d335e5e0fa2f9a9f00b41ace8cf856/requirements.txt)中，需要可以自行下载<br>
 ```pip install -r requirements.txt```
 
 ## 文本纠错
