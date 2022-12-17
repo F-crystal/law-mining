@@ -7,7 +7,7 @@
 
 ## 文本纠错
 ### 基准模型
-基于[macbert](https://github.com/shibing624/pycorrector/pycorrector/macbert)进行数据训练和微调<br>
+基于[macbert](https://github.com/shibing624/pycorrector/blob/master/pycorrector/macbert)进行数据训练和微调<br>
 
 ### 数据集
 所使用的数据集来源如下：<br>
