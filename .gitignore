@@ -1,8 +1,13 @@
 CAIL2019-SCM
 ECSpell-main
-cail2022_文书校对_第一阶段
+cail2022
 CAIL2019-master
 MuCGEC-main
+ECSpell-law
+macbert
+csc_sample
+.idea/
+.ipynb_checkpoints/
 *.docx
 *.pptx
 *.xlsx
