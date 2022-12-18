@@ -15,7 +15,7 @@ pip install -r requirements.txt
 所使用的数据集来源如下：<br>
 
 | 数据集 | 语料 | 下载链接 | 数据所占存储空间 | 格式 |
-| :------- | :--------- | :---------: | :---------: | :---------: |
+| :------- | :---------: | :---------: | :---------: | :---------: |
 | **`原始ECSpell领域数据集`** | ECSpell law| [github](https://github.com/Aopolin-Lv/ECSpell)| 455k | txt |
 | **`原始CAIL2019-SCM数据集`** | CAIL2019-SCM | [下载链接](https://cail.oss-cn-qingdao.aliyuncs.com/cail2019/CAIL2019-SCM.zip)| 44.7k | json |
 | **`原始cail2022文书校对第一阶段数据集`** | cail2022| 目前未提供官方链接 | 992k | json |
@@ -23,6 +23,26 @@ pip install -r requirements.txt
 
 ### 数据增强
 使用了[jionlp](https://github.com/dongrixinyu/JioNLP)中同音词替换和语序置换两种方式
+
+### 模型配置
+已有的配置文件存放在[百度网盘(密码：g8rg)](https://pan.baidu.com/s/1S8MFMfRFeIGyFdT32l1YeQ)中，共有两个配置，可根据需要自行下载：<br>
+
+| 名字 | 语料来源 | 语料大小 |
+| :------- | :---------: | :---------: | 
+| **fine-tuning1** | ECSpell-law+cail2022| 6k+ |
+| **fine-tuning2** | CAIL2019-SCM+ECSpell-law+cail2022 | 290k+ |
+
+每个配置文件组成：
+```
+fine-tuning
+    ├── config.json
+    ├── added_tokens.json
+    ├── pytorch_model.bin
+    ├── special_tokens_map.json
+    ├── tokenizer_config.json
+    └── vocab.txt
+```
+下载后，将文件夹中的6个配置文件放入`~/.pycorrector/datasets/macbert_models/chinese_finetuned_correction`目录下，即可快速调用
 
 ## 参考
 > Xu, M. Pycorrector: Text error correction tool (Version 0.4.2) [Computer software]. https://github.com/shibing624/pycorrector
