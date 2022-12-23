@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 
 ## 文本纠错
-示例：[macbert_demo](https://github.com/F-crystal/law-mining/blob/ac7e41379918bde44b16278a9e13e9a7686715b3/macbert_demo.py)
+示例：[macbert_demo](https://github.com/F-crystal/law-mining/blob/b57a81c8814dc3efe410b4dc3216f3f679500406/back/macbert_demo.py)
 ### 基准模型
 基于[macbert](https://github.com/shibing624/pycorrector/blob/master/pycorrector/macbert)进行数据训练和微调，主要支持中文音似、形似、语法错误纠正<br>
 
