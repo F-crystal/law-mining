@@ -13,21 +13,19 @@ sys.path.append('../..')
 
 def correct(content):
     parser = argparse.ArgumentParser()
-
     # Required parameters
     parser.add_argument("--macbert_model_dir", default=config.macbert_model_dir,
                         type=str,
                         help="MacBert pre-trained model dir")
     args = parser.parse_args()
-
     nlp = MacBertCorrector(args.macbert_model_dir).macbert_correct
 
     # Preprocessing
     sentence_lst = []
     for k in range(len(content)):  # 切分语料
-        if k < len(content)-1 and content[k] in ["。", "；", "：", "？", "！", "……", "——", ","]:  # 使用标点符号
-            sentence_lst.append(content[:k+1])
-            content = content[k+1:]
+        if k < len(content) - 1 and content[k] in ["。", "；", "：", "？", "！", "……", "——", ","]:  # 使用标点符号
+            sentence_lst.append(content[:k + 1])
+            content = content[k + 1:]
 
     sentence_lst.append(content)  # 将最后的语料压入
 
