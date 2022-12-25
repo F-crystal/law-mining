@@ -1,98 +1,79 @@
 <template>
-  
+
   <el-container>
     <el-aside width="200px">
-      <el-menu 
+      <el-menu
       router
-      :default-active="this.$route.path" 
-      class="el-menu-demo" 
+      :default-active="this.$route.path"
+      class="el-menu-demo"
       @select="handleSelect"
       style="min-height: 100vh">
       <el-menu-item index="/">首页</el-menu-item>
       <el-menu-item index="/corrector">文书纠错</el-menu-item>
-      <el-menu-item index="/test">相似案例识别</el-menu-item>   
+      <el-menu-item index="/test">相似案例识别</el-menu-item>
     </el-menu>
   </el-aside>
-
-  
 <el-main>
-      <template>
-<div>
-  <!-- Two-way Data-Binding -->
-  <quill-editor
-      ref="myQuillEditor"
-      v-model="content"
-      :options="editorOption"
-      @blur="onEditorBlur($event)"
-      @focus="onEditorFocus($event)"
-      @ready="onEditorReady($event)"
-  />
-
-</div>
-</template>
-
+  <div style="margin-top: 15px;">
+    <el-input placeholder="请输入内容" v-model="words" class="input-with-select">
+      <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+    </el-input>
+  </div>
+  <ul>
+     <li v-for="(item) in list">{{item}}</li>
+  </ul>
 </el-main>
 </el-container>
 </template>
- 
-<script>
-export default {
-  name: 'test' 
-}
-
-</script>
 
 <script>
 // require styles 导入富文本编辑器对应的样式
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
-import { quillEditor } from 'vue-quill-editor'
-export default {
-  components: {
-    quillEditor
-  }
-}
-</script>
-<script>
+
+// import { quillEditor } from 'vue-quill-editor'
+
 export default {
   data () {
     return {
       content: '<h2>I am Example</h2>',
+      words: '', // 搜索内容
+      list: [], // 展示内容
       editorOption: {
         // Some Quill options...
       }
     }
   },
   methods: {
-    onEditorBlur(quill) {
-      console.log('editor blur!', quill)
-    },
-    onEditorFocus(quill) {
-      console.log('editor focus!', quill)
-    },
-    onEditorReady(quill) {
-      console.log('editor ready!', quill)
-    },
-    onEditorChange({ quill, html, text }) {
-      console.log('editor change!', quill, html, text)
-      this.content = html
+    // 搜索事件
+    search () {
+       this.axios.post(`/word`,
+         {words: this.words}).then((res) => {
+         if (res.data.status === 'success') {
+           this.list =  res.data.info
+          } else {
+           this.$message.error('搜索失败')
+         }
+         console.log(res)
+       }).catch((error) => {
+         this.$message.error(error)
+       })
     }
   },
   computed: {
-    editor() {
+    editor () {
       return this.$refs.myQuillEditor.quill
     }
   },
-  mounted() {
+  mounted () {
     console.log('this is current quill instance object', this.editor)
   }
 }
 </script>
-
- 
- 
 <style scoped>
-
+li{
+  text-align: left;
+}
 
 </style>

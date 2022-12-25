@@ -50,7 +50,7 @@ export default {
   name: 'corrector',
   data() {
     return{
-      msg:'经本院审理查明：2014年4月20日，被告以生意资金周转为由向原告借款9万园',//初始设为''
+      msg:'',//初始设为''
       result:'',
       change:'',
     };
@@ -101,14 +101,17 @@ export default {
       var card=document.getElementById('card'+i)//右侧卡片
       text.className='accept'
       text.innerText=this.change[i][1]
-      card.parentNode.removeChild(card);
-      card
+      //card.parentNode.removeChild(card);
+      card.style.display="none";
+      card.style.border="none";
     },
     reject(i){
       var text=document.getElementById('error'+i)//文章内文字
       var card=document.getElementById('card'+i)//右侧卡片
       text.className='reject'
-      card.parentNode.removeChild(card);
+      //card.parentNode.removeChild(card);
+      card.style.display="none";
+      card.style.border="none";
     }
   },
 

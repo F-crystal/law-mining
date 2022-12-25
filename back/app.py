@@ -9,6 +9,8 @@ from pycorrector.macbert.macbert_corrector import MacBertCorrector
 from pycorrector import config
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+
+import textMining
 from macbert_demo import correct
 sys.path.append('../..')
 
@@ -93,10 +95,20 @@ def submit():
     return jsonify(response_object)
 
 
-
+@app.route('/word',methods=['GET','POST'])
+def seacherWord():
+    response_object = {'status': 'success'}
+    if request.method == 'POST' :  # 以POST方式发送
+        post_data = request.get_json()
+        print(post_data)
+        words = post_data.get('words')
+        list = textMining.run(words)
+        response_object['info'] = list
+        print(response_object)
+        return jsonify(response_object)
 
 
 if __name__ == '__main__':
-
+    app.config['JSON_AS_ASCII'] = False
     app.run()
     print(correct("经本院审理查明：2014年4月20日，被告以生意资金周转为由向原告借款9万园"))
