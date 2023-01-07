@@ -17,13 +17,47 @@
     </el-menu>
   </el-aside>
     <el-main>
-            首页
+      <div style="margin: 30px;">
+            <div class="title1">法律文书写作辅助系统</div>
+            <div class="title2">集文书校对、相似案例识别于一体</div>
+            <div class="title2">为您的文书写作保驾护航</div>
+            <div class="title3">
+              ←点击左侧菜单体验
+            </div>            
+      </div>
     </el-main>
   </el-container>
 </el-container>
 </template>
 
 <style>
+
+
+  .title1{
+    background: linear-gradient(92.06deg,#33c2ff -17.9%,#257cff 43.39%,#165dff 99.4%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 54px;
+    line-height: 1.25;
+    font-weight: 500;
+    color: var(--color-text-1);
+    white-space: nowrap;
+    margin:10px
+  }
+  .title2{
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 500;
+    color: var(--color-text-1);
+    white-space: nowrap;
+    margin:5px
+  }
+  .title3{
+    color: grey;
+    margin: 10px;
+  }
+
   .editorComponent:empty:before {
     content: attr(data-placeholder);
   }
@@ -51,6 +85,10 @@
   
   .el-aside {
     color: #333;
+  }
+  .el-main{
+    text-align: left;
+
   }
   #title{
   overflow: hidden;
